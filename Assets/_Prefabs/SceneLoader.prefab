@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadePanel: {fileID: 1917879733845190, guid: bce32ea6e36497e43b91088dcc593c78, type: 2}
-  loadingTimer: 3
-  loadingScreen: {fileID: 1885559095038414, guid: 41cce5d0396bd1943a22bffd6240dce4,
+  loadingScreen: {fileID: 1079532643785576, guid: 0f574aac44f3f5846856d5da2e600798,
     type: 2}
+  loadingTimer: 0
+  lastSceneID: 0

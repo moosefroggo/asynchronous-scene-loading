@@ -1,16 +1,18 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour {
-
+    [HideInInspector]
     public static SceneLoader instance;
     public GameObject fadePanel; // This panel is used for the fade-in effect
     public GameObject loadingScreen; //Loading screen prefab to be instantiated
     private GameObject loadingScreenHolder; //Need this to hold reference to instantiated object
     public float loadingTimer; //The amount of time after which loading screen should be instantiated
     public int lastSceneID; //Caching the id of last scene on every scene change just incase it gets instantiated after the next scene is loaded
-
+    // Use this for initialization
     #region Methods
     void Awake () {
         
@@ -34,10 +36,7 @@ public class SceneLoader : MonoBehaviour {
     public void LoadScene(int buildIndex)
     {
         Instantiate(fadePanel);
-        if (loadingScreen)
-        {
-            Invoke("EnableLoadingScreen", loadingTimer);
-        }
+        Invoke("EnableLoadingScreen", loadingTimer);
         StartCoroutine(LoadYourAsyncScene(buildIndex));
     }
     /// <summary>
@@ -47,13 +46,12 @@ public class SceneLoader : MonoBehaviour {
     public void LoadScene(string sceneName)
     {
         Instantiate(fadePanel);
-        if (loadingScreen)
-        {
-            Invoke("EnableLoadingScreen", loadingTimer);
-        }
+        Invoke("EnableLoadingScreen", loadingTimer);
         StartCoroutine(LoadYourAsyncScene(sceneName));
     }
     #endregion
+
+
     #region Coroutines for Async Loading
     /// <summary>
     /// Loads scene asynchronously using scene ID
