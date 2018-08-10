@@ -10,3 +10,4 @@ or call via scene name
 ```
 SceneLoader.instance.LoadScene("SceneName");
 ```
+To assign loading screen, just pull the LoadingScreenUI object on your scene and replace its child with your own loading screen/canvas element
